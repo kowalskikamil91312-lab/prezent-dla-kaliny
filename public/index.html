@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Dla Kaliny ❤️</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+text-align:center;
+background: linear-gradient(135deg,#ff758c,#ff7eb3);
+color:white;
+overflow-x:hidden;
+}
+
+.container{
+padding:40px;
+}
+
+h1{
+font-size:60px;
+}
+
+.message{
+font-size:22px;
+max-width:700px;
+margin:auto;
+line-height:1.6;
+}
+
+the.gallery{
+margin-top:50px;
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+the.gallery img{
+width:280px;
+margin:15px;
+border-radius:20px;
+box-shadow:0 0 25px rgba(0,0,0,0.4);
+transition:0.4s;
+}
+
+the.gallery img:hover{
+transform:scale(1.08);
+}
+
+button{
+margin-top:30px;
+padding:16px 30px;
+font-size:20px;
+border:none;
+border-radius:14px;
+background:white;
+color:#ff4b6e;
+cursor:pointer;
+box-shadow:0 0 20px rgba(0,0,0,0.3);
+}
+
+.heart{
+position:fixed;
+top:-10px;
+animation:fall linear forwards;
+}
+
+@keyframes fall{
+to{
+transform:translateY(100vh);
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Kalina ❤️</h1>
+
+<p class="message">
+
+Wszystkiego najlepszego z okazji urodzin! 🎂  
+
+Chciałem zrobić dla Ciebie coś trochę innego niż zwykłe życzenia.  
+Mam nadzieję że ten mały prezent wywoła uśmiech na Twojej twarzy.  
+
+Jesteś naprawdę wyjątkową osobą ✨  
+
+</p>
+
+<button onclick="start()">Kliknij tutaj 🎁</button>
+
+<div class="gallery">
+
+<h2>Nasze chwile 📸</h2>
+
+<img src="kalina1.jpg">
+<img src="kalina2.jpg">
+<img src="kalina3.jpg">
+
+</div>
+
+</div>
+
+<audio id="music" loop>
+<source src="piosenka.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+function start(){
+document.getElementById("music").play();
+confetti();
+}
+
+function createHeart(){
+const heart=document.createElement("div");
+heart.classList.add("heart");
+heart.innerHTML="❤️";
+heart.style.left=Math.random()*100+"vw";
+heart.style.animationDuration=(Math.random()*3+2)+"s";
+heart.style.fontSize=(Math.random()*20+10)+"px";
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},5000);
+}
+
+setInterval(createHeart,300);
+
+function confetti(){
+for(let i=0;i<80;i++){
+let conf=document.createElement("div");
+conf.innerHTML="🎉";
+conf.style.position="fixed";
+conf.style.left=Math.random()*100+"vw";
+conf.style.top=Math.random()*100+"vh";
+conf.style.fontSize="22px";
+document.body.appendChild(conf);
+
+setTimeout(()=>{
+conf.remove();
+},3000);
+}
+}
+
+</script>
+
+</body>
+</html>
